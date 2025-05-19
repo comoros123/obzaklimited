@@ -2,52 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Obzak Company Limited</title>
+  <title>Obzak Investment Land Com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styless.css">
 </head>
 <body>
   <header>
     <div class="logo-container">
       <img src="assets/logo1.jpg" alt="Obzak Logo" class="logo">
-      <div class="company-name">Obzak Company Limited</div>
+      <div class="company-name">Obzak Investment Land Com</div>
     </div>
-    <nav>
-      <ul>
-        <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
-        <li><a href="#" class="nav-link" data-page="lands">Land Listing</a></li>
-        <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
-      </ul>
-    </nav>
+<nav>
+  <!-- Hamburger button will be injected via JS for mobile -->
+  <ul>
+    <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+    <li><a href="#" class="nav-link" data-page="lands">Land Listing</a></li>
+    <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+  </ul>
+</nav>
   </header>
   <main>
     <section id="home" class="page-container active">
-      <div class="list-service">
-      <h2>services</h2>
-      <table border="1">
-        <tr ><th colspan="3"> obzak services</th></tr>
-        <tr>
-          <td>Advocating</td>
-          <td>Property Development</td>
-          <td>Process server</td>
-        </tr>
-        <tr>
-          <td>buying and selling properties</td>
-          <td>land matters</td>
-          <td>Transfer</td>
-        </tr>
-          <tr>
-          <td>Property valuation</td>
-          <td>Survey</td>
-          <td>Property Management</td>
-        </tr>
-          <tr>
-          <td>Property sale & Marketing</td>
-          <td>Agreements</td>
-          <td>Succession</td>
-        </tr>
-      </table>
-      </div>
+<div class="list-service">
+  <h2>services</h2>
+  <table border="1" id="services-table">
+    <tr><th colspan="3"> obzak services</th></tr>
+    <tr>
+      <td data-service="Advocating">Advocating</td>
+      <td data-service="Property Development">Property Development</td>
+      <td data-service="Process server">Process server</td>
+    </tr>
+    <tr>
+      <td data-service="Buying and Selling Properties">buying and selling properties</td>
+      <td data-service="Land Matters">land matters</td>
+      <td data-service="Transfer">Transfer</td>
+    </tr>
+    <tr>
+      <td data-service="Property Valuation">Property valuation</td>
+      <td data-service="Survey">Survey</td>
+      <td data-service="Property Management">Property Management</td>
+    </tr>
+    <tr>
+      <td data-service="Property Sale & Marketing">Property sale & Marketing</td>
+      <td data-service="Agreements">Agreements</td>
+      <td data-service="Succession">Succession</td>
+    </tr>
+  </table>
+</div>
       <div class="gallery">
         <h2>Our Lands Gallery</h2>
         <div class="gallery-slider">
@@ -91,6 +92,21 @@
           <span>- George M</span>
         </blockquote>
       </div>
+      <div class="address-section">
+  <div class="address-icon">
+    <svg width="38" height="38" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#227a3a" stroke-width="2"/><path d="M12 12c-4 0-7 2-7 4.5V20h14v-3.5C19 14 16 12 12 12z" stroke="#227a3a" stroke-width="2"/><circle cx="12" cy="8" r="1.5" fill="#227a3a"/></svg>
+  </div>
+  <div class="address-content">
+    <h3>Our Office Address</h3>
+    <p>
+      Obzak Investment Land Com<br>
+      2nd Floor, Obzak House,<br>
+      Kilifi Road, Kilifi Town,<br>
+      Kenya
+    </p>
+    <p class="address-highlight">Visit us for all your land and property solutions!</p>
+  </div>
+</div>
     </section>
     <section id="lands" class="page-container">
       <h2>Available Land Listings</h2>

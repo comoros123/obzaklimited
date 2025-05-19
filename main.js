@@ -10,8 +10,34 @@ document.addEventListener('DOMContentLoaded', function() {
       pages.forEach(p => p.classList.remove('active'));
       this.classList.add('active');
       document.getElementById(this.getAttribute('data-page')).classList.add('active');
+      // For mobile, close nav after clicking
+      if (window.innerWidth <= 600) {
+        document.querySelector('nav ul').classList.remove('show-nav');
+      }
     });
   });
+
+  // --- Hamburger navigation for mobile ---
+  const nav = document.querySelector('nav');
+  if (nav) {
+    let navToggle = document.querySelector('.nav-toggle');
+    if (!navToggle) {
+      navToggle = document.createElement('button');
+      navToggle.className = 'nav-toggle';
+      navToggle.innerHTML = '&#9776;';
+      nav.insertBefore(navToggle, nav.firstChild);
+    }
+    const navList = nav.querySelector('ul');
+    navToggle.onclick = function() {
+      navList.classList.toggle('show-nav');
+    }
+    // Hide nav when clicking outside on mobile
+    document.body.addEventListener('click', function(e) {
+      if (window.innerWidth <= 600 && !nav.contains(e.target)) {
+        navList.classList.remove('show-nav');
+      }
+    });
+  }
 
   // --- Automatic Slideshow for all .gallery-slider sections, shows 3 images at a time ---
   document.querySelectorAll('.gallery-slider').forEach(setupGallerySlider);
@@ -46,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // --- Popup for land-card details with WhatsApp button ---
-  // Create popup HTML
   const popup = document.createElement('div');
   popup.id = 'land-popup';
   popup.style.display = 'none';
@@ -136,4 +161,26 @@ document.addEventListener('DOMContentLoaded', function() {
       popup.style.display = 'flex';
     };
   });
+
+  // --- Service cell click to WhatsApp ---
+  const serviceTable = document.getElementById('services-table');
+  if (serviceTable) {
+    const serviceCells = serviceTable.querySelectorAll('td[data-service]');
+    serviceCells.forEach(cell => {
+      cell.style.cursor = 'pointer';
+      cell.addEventListener('click', function(e) {
+        // Remove green fill from other cells
+        serviceCells.forEach(c => c.classList.remove('service-selected'));
+        // Add green fill to this one
+        this.classList.add('service-selected');
+        // WhatsApp logic
+        const whatsappNumber = "254752523244";
+        const service = this.getAttribute('data-service');
+        const message = encodeURIComponent(`Hello, I am interested in your "${service}" service. Please provide me with more information.`);
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+        // Redirect to WhatsApp
+        window.open(whatsappUrl, '_blank');
+      });
+    });
+  }
 });
